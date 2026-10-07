@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab #5: Poleas</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f0f0f0; margin: 20px; }
+        .container { display: flex; gap: 20px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        canvas { background: #fafafa; border: 2px solid #ccc; border-radius: 4px; }
+        .controls { display: flex; flex-direction: column; gap: 10px; width: 250px; }
+        .controls label { font-weight: bold; font-size: 14px; }
+        .controls input { width: 100%; padding: 5px; margin-bottom: 5px; }
+        button { padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #0056b3; }
+        .results { margin-top: 15px; padding: 10px; background: #e9ecef; border-radius: 4px; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+    <h1>Simulador de Poleas (Movimiento Acelerado)</h1>
+    <h3>By: Ing. Ivan Aguilar</h3>
+    
+    <div class="container">
+        <canvas id="gameCanvas" width="400" height="500"></canvas>
+
+        <div class="controls">
+            <button id="btnUnidades">Cambiar a: Métrico (cm / g)</button>
+
+            <label>Masa 1 (Cae) - m1 (<span class="lblMasa">kg</span>):</label>
+            <input type="number" id="m1" value="5" min="0.1" step="0.1">
+
+            <label>Masa 2 (Sube) - m2 (<span class="lblMasa">kg</span>):</label>
+            <input type="number" id="m2" value="15" min="0.1" step="0.1">
+
+            <label>Distancia al suelo x (<span class="lblDist">m</span>):</label>
+            <input type="number" id="alturaX" value="10" min="1" max="20">
+
+            <button id="btnIniciar">Soltar Carga</button>
+
+            <div class="results">
+                <strong>Métricas del Sistema:</strong>
+                <p>Aceleración: <span id="txtAcel">0.00</span> <span class="lblAcel">m/s²</span></p>
+                <p>Tiempo de caída: <span id="txtTiempo">0.00</span> s</p>
+                <p>Tiempo transcurrido: <span id="txtActual">0.00</span> s</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="dist/juego.js"></script>
+</body>
+</html>
